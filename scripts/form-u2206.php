@@ -23,7 +23,7 @@ function emailFormSubmission()
 	if(!defined('PHP_EOL'))
 		define('PHP_EOL', '\r\n');
 
-	$to = 'arquivo.tati@gmail.com';
+	$to = '';
 	$subject = 'CONTACT_site_Tati Submission';
 	
 	$message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><title>' . htmlentities($subject,ENT_COMPAT,'UTF-8') . '</title></head>';
@@ -40,7 +40,7 @@ function emailFormSubmission()
 	$message = cleanupMessage($message);
 	
 	$formEmail = cleanupEmail($_REQUEST['Email']);
-	$headers = 'From: arquivo.tati@gmail.com' . PHP_EOL . 'Reply-To: ' . $formEmail . PHP_EOL .'X-Mailer: Adobe Muse 2014.0.328 with PHP/' . phpversion() .'/'. PHP_OS . PHP_EOL . 'Content-type: text/html; charset=utf-8' . PHP_EOL;
+	$headers = 'From: ' . PHP_EOL . 'Reply-To: ' . $formEmail . PHP_EOL .'X-Mailer: Adobe Muse 2014.0.328 with PHP/' . phpversion() .'/'. PHP_OS . PHP_EOL . 'Content-type: text/html; charset=utf-8' . PHP_EOL;
 	
 	$sent = @mail($to, $subject, $message, $headers);
 	
